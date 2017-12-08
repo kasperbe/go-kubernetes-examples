@@ -7,7 +7,7 @@ The idea is that if you need to deploy stuff, why should you learn how to deploy
 
 Run locally on port 8000.
 ```
-dist/app
+./selfdeploying-app
 ```
 
 Deploy to kubernetes, still port 8000.
