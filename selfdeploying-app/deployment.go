@@ -6,8 +6,6 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-func int32Ptr(i int32) *int32 { return &i }
-
 // Deployment configuration
 func Deployment(replicas int32) *appsv1beta1.Deployment {
 	return &appsv1beta1.Deployment{
@@ -15,7 +13,7 @@ func Deployment(replicas int32) *appsv1beta1.Deployment {
 			Name: "demo-deployment",
 		},
 		Spec: appsv1beta1.DeploymentSpec{
-			Replicas: int32Ptr(replicas),
+			Replicas: &replicas,
 			Template: apiv1.PodTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: map[string]string{
