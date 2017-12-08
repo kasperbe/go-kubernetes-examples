@@ -63,10 +63,6 @@ func deployKubernetes(configPath string, replicas int32) error {
 	return nil
 }
 
-func hello(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "Hello world!")
-}
-
 func main() {
 	var kubeconfig *string
 
@@ -88,4 +84,8 @@ func main() {
 
 	http.HandleFunc("/", hello)
 	http.ListenAndServe(":8000", nil)
+}
+
+func hello(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Hello world!")
 }
