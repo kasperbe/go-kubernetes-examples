@@ -12,5 +12,5 @@ Run locally on port 8000.
 
 Deploy to kubernetes, still port 8000.
 ```
-dist/app --kubernetes --replicas 2
+./selfdeploying-app --kubernetes --replicas 2
 ```
