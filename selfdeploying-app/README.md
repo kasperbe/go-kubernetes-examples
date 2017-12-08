@@ -14,3 +14,5 @@ Deploy to kubernetes, still port 8000.
 ```
 ./selfdeploying-app --kubernetes --replicas 2
 ```
+
+Ctrl-C will remove the services from Kubernetes, so there's no manual clean up.
