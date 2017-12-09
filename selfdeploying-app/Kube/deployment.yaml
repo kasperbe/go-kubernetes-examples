@@ -1,0 +1,25 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: demo-deployment
+  namespace: default
+  creationTimestamp: 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      creationTimestamp: 
+      labels:
+        app: demo
+    spec:
+      containers:
+      - name: web
+        image: kasperbe/selfdeploying-app:latest
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        resources: {}
+  strategy: {}
+status: {}

@@ -10,7 +10,6 @@ import (
 	"path/filepath"
 
 	"github.com/pkg/errors"
-	apiv1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
@@ -34,8 +33,8 @@ func deployKubernetes(configPath string, replicas int32) error {
 		return errors.Wrap(err, "Couldn't connect to kubernetes")
 	}
 
-	deploymentsClient := clientset.AppsV1beta1().Deployments(apiv1.NamespaceDefault)
 	d := Deployment(replicas)
+	deploymentsClient := clientset.AppsV1beta1().Deployments(d.Namespace)
 
 	result, err := deploymentsClient.Create(d)
 	if err != nil {
